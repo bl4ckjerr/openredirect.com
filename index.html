@@ -3,56 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
+    <title>Login | New Relic Clone</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #011e2fd6;
+            color: white;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             height: 100vh;
+            justify-content: center;
+        }
+        .warning {
+            background: red;
+            color: yellow;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
         }
         .login-container {
-            background: white;
-            padding: 20px;
+            background: #1e1e1e;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 350px;
             text-align: center;
+        }
+        .login-logo img {
+            width: 150px; /* Tamaño ajustado */
+            margin-bottom: 20px;
         }
         .login-container h2 {
             margin-bottom: 20px;
+            font-weight: 600;
         }
-        input {
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .input-group input {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
+            padding: 12px 40px 12px 10px;
+            border: 1px solid #444;
             border-radius: 5px;
+            background: #252525;
+            color: white;
+            outline: none;
+        }
+        .input-group i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
         }
         button {
             width: 100%;
-            padding: 10px;
-            background: #007bff;
-            color: white;
+            padding: 12px;
+            background: #00c853;
             border: none;
             border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
         }
         button:hover {
-            background: #0056b3;
+            background: #009624;
+        }
+        .footer-links {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .footer-links a {
+            color: #00c853;
+            text-decoration: none;
+        }
+
+        /* ---- Estilos de los botones de login social ---- */
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .social-login a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border: 1px solid #e1d3d3fc;
+            border-radius: 5px;
+            background: #252525;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .social-login a img {
+            width: 24px;
+            height: 24px;
+        }
+        .social-login a:hover {
+            background: #ede5e5;
+            border-color: #666;
         }
     </style>
 </head>
 <body>
+
+    <!-- Mensaje de advertencia con marquee -->
+    <marquee class="warning">⚠️ HACKED POC OPEN REDIRECT | SITIO MALICIOSO ⚠️</marquee>
+
     <div class="login-container">
-        <h2>Iniciar Sesión</h2>
+        <!-- Logo de New Relic -->
+        <div class="login-logo">
+            <img src="https://login.newrelic.com/assets/v5/login_logo-a9fa23bcc1347aec4b79db689c4962a20b04916a108487a5f35d04063bc9a944.png" alt="New Relic">
+        </div>
+
+        <h2>Inicia sesión para ver tus datos</h2>
         <form action="login.php" method="POST">
-            <input type="text" name="usuario" placeholder="Usuario" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit">Ingresar</button>
+            <div class="input-group">
+                <input type="text" name="usuario" placeholder="Correo electrónico" required>
+                <i>📧</i>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <i>🔒</i>
+            </div>
+            <button type="submit">Próximo</button>
         </form>
+
+        <!-- Botones de login social -->
+        <div class="social-login">
+            <a href="#"><img src="https://login.newrelic.com/assets/azureb2c/google-5423e2e33f5aa4635c9cd5475d3e1737694404a42f1f3bec485105e2fe1c7ce2.svg" alt="Google"></a>
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"></a>
+            <a href="#"><img src="https://login.newrelic.com/assets/azureb2c/gitlab-11510f7625fa7a1f0eb4838cc0379296a37d83fc6f7b528f5c281f08a20dfd77.svg" alt="GitLab"></a>
+            <a href="#"><img src="https://login.newrelic.com/assets/azureb2c/bitbucket-e6442ffff98c8f27aebf0f5672adf104d7f14b869f1a5201c9726e224cc20266.svg" alt="Bitbucket"></a>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">¿Olvidaste tu contraseña?</a> | 
+            <a href="#">Crear una cuenta gratis</a>
+        </div>
     </div>
+
 </body>
 </html>
